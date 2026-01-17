@@ -1,6 +1,6 @@
 # syntax = docker/dockerfile:1.4
 ARG BASE_TAG="develop"
-ARG BASE_IMAGE="core-ubuntu-focal"
+ARG BASE_IMAGE="core-ubuntu-noble"
 
 FROM kasmweb/$BASE_IMAGE:$BASE_TAG
 USER root
@@ -25,7 +25,7 @@ RUN --mount=type=cache,target=/var/cache/apt --mount=type=cache,target=/var/lib/
     apt-get update && \
     apt-get upgrade --no-install-recommends -y && \
     apt-get dist-upgrade --no-install-recommends -y && \
-    apt-get install -y --no-install-recommends wine-development && \
+    apt-get install -y --no-install-recommends wine && \
     apt-get autoremove -y && \
     apt-get autoclean -y
 
