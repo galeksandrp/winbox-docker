@@ -3,19 +3,14 @@ on:
   schedule:
     - cron: "23 2 * * *"
   push:
-    branches:
-      - main
-      - slim
-  pull_request:
-    branches:
-      - main
+    branches: ["**"]
 
 env:
   # github.repository as <account>/<repo>
   IMAGE_NAME: winbox
   IMAGES: |
-    docker.io/obeoneorg/winbox
-    ghcr.io/obeone/winbox
+    docker.io/${{ github.actor }}/winbox
+    ghcr.io/${{ github.actor }}/winbox
 
 jobs:
   Build:
